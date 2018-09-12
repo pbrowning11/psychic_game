@@ -13,17 +13,13 @@ display();
 
 
 
-document.onkeyup = function() {
+document.onkeyup = function () {
     var userGuess = event.key;
-        console.log(userGuess);
-    if (compOption.search(/[^a-z]+/i)) {// === -1 && compOption.length === 1) {
-        alert("choose");
-    }
-
+    console.log(userGuess);
     if (userGuess === compGuess) {
         winner();
         alert("Winning letter is: " + userGuess);
-    } else if (chances -1 === 0) {
+    } else if (chances - 1 === 0) {
         loser();
     } else {
         wrongGuess(userGuess);
@@ -42,7 +38,7 @@ function display() {
     adjWins.textContent = "Number of Wins: " + wins;
     adjLosses.textContent = "Number of Losses: " + losses;
     adjChances.textContent = "Guesses Remaining: " + chances;
-    adjLetGuessed.textContent = "Letters Guessed: " + guessed.join( ",");
+    adjLetGuessed.textContent = "Letters Guessed: " + guessed.join(",");
 }
 
 function winner() {
@@ -60,10 +56,10 @@ function wrongGuess(letter) {
     guessed.push(letter);
 }
 
-function reset() {
+function reset() {  
     chances = 9;
     guessed = [];
-    compGuess = compOption[Math.floor(Math.random()*compOption.length)];
+    compGuess = compOption[Math.floor(Math.random() * compOption.length)];
     console.log(compGuess);
 }
 
